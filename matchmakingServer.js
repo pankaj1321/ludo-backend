@@ -9,9 +9,14 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173", // Change if deployed
-        methods: ["GET", "POST"],
-    }
+    origin: [
+        "https://ludo-frontend-gray.vercel.app", // your main production frontend
+        "http://localhost:5173",                // add for local dev as well
+    ],
+    methods: ["GET", "POST"],
+    credentials: true, // (optional, but good if you use cookies/auth)
+}
+
 });
 
 app.use(cors());

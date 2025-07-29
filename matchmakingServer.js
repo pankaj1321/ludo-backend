@@ -10,11 +10,11 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
     origin: [
-        "https://ludo-frontend-gray.vercel.app", // your main production frontend
-        "http://localhost:5173",                // add for local dev as well
+        "https://ludo-frontend-gray.vercel.app", 
+        "http://localhost:5173",                
     ],
     methods: ["GET", "POST"],
-    credentials: true, // (optional, but good if you use cookies/auth)
+    credentials: true, 
 }
 
 });
@@ -203,7 +203,6 @@ function getClientMatches() {
     }));
 }
 
-// === START SERVER ===
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
     console.log("🚀 Server running on port", PORT);
